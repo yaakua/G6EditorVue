@@ -39,7 +39,7 @@
                         ev.cancel = true;
                     }
                 });
-                page.on('dragedge:beforeshowanchor', ev => {
+               /* page.on('dragedge:beforeshowanchor', ev => {
                     // 只允许目标锚点是输入，源锚点是输出，才能连接
                     if (!(ev.targetAnchor.type === 'input' && ev.sourceAnchor.type === 'output')) {
                         ev.cancel = true;
@@ -52,7 +52,7 @@
                     if (ev.dragEndPointType === 'source' && page.anchorHasBeenLinked(ev.source, ev.sourceAnchor)) {
                         ev.cancel = true;
                     }
-                });
+                });*/
                 this.editor.add(page);
             }
         },

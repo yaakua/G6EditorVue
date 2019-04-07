@@ -19,6 +19,9 @@
         <i data-command="multiSelect" class=" command iconfont icon-RectangleCopy" title="多选"></i>
         <i data-command="addGroup" class=" command iconfont icon-zuhe" title="成组"></i>
         <i data-command="unGroup" class=" command iconfont icon-jiezhiya" title="解组"></i>
+        <span className="separator"></span>
+        <button @click="saveGraph">保存</button>
+
     </div>
 </template>
 <script>
@@ -35,6 +38,12 @@
                 container: 'toolbar',
             });
             this.editor.add(toolbar)
+        },
+        methods:{
+            saveGraph(){
+
+                this.$parent.saveData()
+            }
         }
     }
 </script>

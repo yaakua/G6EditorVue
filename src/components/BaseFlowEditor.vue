@@ -7,7 +7,7 @@
             <div style="height: 42px;"></div>
             <div class="bottom-container">
                 <flowitempannel :editor="editor"></flowitempannel>
-                <flowdetailpannel :editor="editor"></flowdetailpannel>
+                <flowdetailpannel :editor="editor" ref="detail"></flowdetailpannel>
                 <flownavigator :editor="editor"></flownavigator>
                 <flowpage :editor="editor"></flowpage>   <!-- 参考 Flow、Mind API -->
             </div>
@@ -43,6 +43,14 @@
             }
         },
         methods:{
+            saveData(){
+                const graph =  this.editor.getCurrentPage()
+                const data = graph.save();
+                console.log("保存的数据:{}",data)
+                let nodeProps = this.$refs["detail"].getNodeProps()
+                console.log("保存的NodeProps数据:{}",nodeProps)
+
+            },
             changeZoom(zoom) {
                 const editor = this.editor;
                 const page = editor.getCurrentPage();
@@ -162,6 +170,8 @@
         },
         created(){
             this.editor = new G6Editor();
+
+
             this.myFlow = G6Editor.Flow;
             this.registerGAmenode();
         },
